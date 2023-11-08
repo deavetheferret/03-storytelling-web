@@ -1,0 +1,90 @@
+/* ====================================
+// scss variables
+// ==================================== */
+
+/* ====================================
+// reset rules
+// ==================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  max-inline-size: 100%;
+  block-size: auto;
+  vertical-align: middle;
+}
+
+/* ====================================
+// base rules
+// ==================================== */
+
+[class^="box-wrapper-"] {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  [class^="box-"] {
+    width: 550px;
+    height: 216px;
+  }
+  .box-1 {
+    background-color: red;
+  }
+  .box-2 {
+    background-color: green;
+  }
+  .box-3 {
+    background-color: blue;
+  }
+  .box-4 {
+    background-color: yellow;
+  }
+  .box-5 {
+    background-color: red;
+  }
+  .box-6 {
+    background-color: green;
+  }
+  .box-7 {
+    background-color: blue;
+  }
+  .box-8 {
+    background-color: yellow;
+  }
+  .box-9 {
+    background-color: red;
+  }
+  .box-10 {
+    background-color: green;
+  }
+  .box-11 {
+    background-color: blue;
+  }
+  .box-12 {
+    background-color: yellow;
+  }
+}
