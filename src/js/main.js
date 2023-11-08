@@ -18,14 +18,15 @@ boxes.forEach((box, index) => {
       pinSpacing: false,
       markers: true,
       scrub: 1,
+      id: index,
       onUpdate: function (self) {
-        const progress = self.progress;
+        let progress = self.progress;
         if (progress > 0.85) {
-          gsap.to(box, { opacity: 1 - (progress - 0.85) * 10 });
+          gsap.to(box, { opacity: 1 - (progress - 0.85) * 15 }); //<== from the 3rd one
         }
       },
     },
-    scale: 0.9,
-    rotate: () => gsap.utils.random(-8, 8),
+    scale: 0.9, //<== from the 3rd one
+    rotate: () => gsap.utils.random(-8, 8), //<== from the 3rd one (except: 0)
   });
 });
