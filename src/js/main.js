@@ -2,31 +2,38 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Timeline } from "gsap/gsap-core";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Timeline);
 
 var boxes = document.querySelectorAll("[class^='box-']");
 var boxWrappers = document.querySelectorAll("[class^='wrapper-box-']");
 
-boxes.forEach((box, index) => {
-  gsap.to(box, {
+gsap.utils.toArray(boxes).forEach((box, index) => {
+  let tl = gsap.timeline({
     scrollTrigger: {
       trigger: boxWrappers[index],
       start: "center center",
-      end: "400% center",
-      pin: true,
-      pinSpacing: false,
-      markers: true,
+      end: "400% top",
       scrub: 1,
-      id: index,
-      onUpdate: (self) => {
-        let progress = self.progress;
-        if (progress > 0.85) {
-          gsap.to(box, { opacity: 1 - (progress - 0.85) * 15 }); //<== from the 3rd one
-        }
-      },
+      pin: true,
+      markers: true,
     },
-    scale: 0.9,
-    rotate: () => gsap.utils.random(-8, 8), //<== from the 3rd one (except: 0)
   });
+
+  tl.to(box, {
+    scale: 0.9,
+    ease: "none",
+    rotate: () => gsap.utils.random(-8, 8),
+  });
+
+  tl.to(
+    box,
+    {
+      opacity: 0,
+      ease: "none",
+    },
+    "<+=85%"
+  );
 });
